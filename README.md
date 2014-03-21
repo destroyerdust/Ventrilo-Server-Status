@@ -1,10 +1,10 @@
 Ventrilo Server Status
 ======================
 
-Ventrilo Server Status is basically a webscraper that scrapes the default ventrilo server status website (http://www.ventrilo.com/status.php) and it will collect information about a ventrilo server and return in a array of objects or print out in STDOUT.
+Ventrilo Server Status is basically a webscraper that scrapes the default ventrilo server status website (http://www.ventrilo.com/status.php) and it will collect information about a ventrilo server and return in a array. (Soon to be JSON)
 
-Gem Installation
-================
+Installation
+============
 
 The following will build the gem to be used:
 
@@ -16,8 +16,8 @@ Then the following will install the gem to be used:
 
 If installation fails please check version number (0.0.1 on the .gem file) and update accordingly.
 
-Gem Usage
-=========
+Usage
+=====
 
 First you have to install the gem so look above!
 
@@ -46,19 +46,6 @@ Example:
 
 	# Returns Player Information
 	Vent_Status.players('notarealvent.typefrag.com', '55555')
-
-Command Line Usage
-==================
-
-In a command line call the following line:
-
-	ruby ./vent_status.rb <hostname> <port>
-
-Example:
-
-	ruby ./vent_status.rb notarealvent.typefrag.com 55555
-
-The results will be printed in STDOUT
 
 License
 =======
