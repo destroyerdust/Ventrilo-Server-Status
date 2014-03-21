@@ -2,6 +2,40 @@ require 'mechanize'
 
 class Vent_Status
 
+	# Public Methods
+	def self.players(hostname, port)
+		agent = Mechanize.new
+
+		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
+		vent_page = agent.get(url)
+
+		get_player_info(vent_page)
+	end
+
+	def self.server(hostname, port)
+		agent = Mechanize.new
+
+		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
+		vent_page = agent.get(url)
+
+		get_server_info(vent_page)
+	end
+
+	def self.full_status(hostname, port)
+
+		agent = Mechanize.new
+
+		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
+
+		vent_page = agent.get(url)
+
+		online_offline(vent_page)
+		get_server_info(vent_page)
+		get_player_info(vent_page)
+
+	end
+
+	#Private Methods
 	# Creates an page array of all server information on the ventrilo server
 	def self.get_server_info(page)
 
@@ -77,36 +111,7 @@ class Vent_Status
 
 	end
 
-	def self.players(hostname, port)
-		agent = Mechanize.new
+	private_class_method :online_offline, :get_player_info, :get_server_info
 
-		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
-		vent_page = agent.get(url)
-
-		self.get_player_info(vent_page)
-	end
-
-	def self.server(hostname, port)
-		agent = Mechanize.new
-
-		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
-		vent_page = agent.get(url)
-
-		self.get_server_info(vent_page)
-	end
-
-	def self.full_status(hostname, port)
-
-		agent = Mechanize.new
-
-		url = "http://www.ventrilo.com/status.php?hostname=" + hostname + "&port=" + port + ""
-
-		vent_page = agent.get(url)
-
-		self.online_offline(vent_page)
-		self.get_server_info(vent_page)
-		self.get_player_info(vent_page)
-
-	end
 end
 
