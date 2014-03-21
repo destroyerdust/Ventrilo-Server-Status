@@ -34,8 +34,18 @@ Now you can use the gem. Listed before is the simple usage of the gem.
 	# Returns Player Information
 	Vent_Status.players('<hostname>', '<port>')
 
-Do not include the <> characters.
+Example:
 
+	require 'vent_status'
+
+	# Returns all information (Server and Players for now)
+	Vent_Status.full_status('notarealvent.typefrag.com', '55555')
+
+	# Returns Server Information
+	Vent_Status.server('notarealvent.typefrag.com', '55555')
+
+	# Returns Player Information
+	Vent_Status.players('notarealvent.typefrag.com', '55555')
 
 Command Line Usage
 ==================
